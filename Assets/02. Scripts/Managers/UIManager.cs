@@ -3,7 +3,9 @@
 public class UIManager : GlobalSingletonMono<UIManager>
 {
     private Transform popupUiTransform;
-    private GameObject curUI;      
+    private GameObject curUI;
+
+
 
     public void OpenUI(GameObject obj)
     {

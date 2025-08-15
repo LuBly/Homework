@@ -7,7 +7,7 @@ public class Film : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 {
     // 드래그 시작 시: 해당 오브젝트를 SetActive로 비활성화, 마우스 위치에 Prefab을 생성하여 드래그 시작
 
-    public TestData FilmData; // 드래그된 이미지의 데이터, 차후 FilmData로 명칭 변경 후 ScriptableObject로 관리
+    public Sprite FilmData; // 드래그된 이미지의 데이터(실제 비교에 사용)
     public static GameObject beingDraggImg; // 현재 드래그 중인 이미지 오브젝트
     public Image filmImage; // 드래그 중인 이미지 오브젝트의 이미지 컴포넌트
     private Color imageColor; // 드래그 중인 이미지의 색상 정보
@@ -51,6 +51,8 @@ public class Film : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         startParent = transform.parent; // 드래그 시작 부모 저장
 
         transform.SetParent(onDragParent);
+        // FilmImage의 Sprite를 FilmData에 저장
+        FilmData = filmImage.sprite;
         Debug.Log("드래그 시작");
     }
 
