@@ -8,7 +8,7 @@ public class BookFilm : MonoBehaviour, IDropHandler, IPointerClickHandler
 {
     // 드래그된 오브젝트를 받았을 때 호출되는 함수
     [SerializeField] private Image filmImage; // 현재 오브젝트의 Image 컴포넌트
-    [SerializeField] private int filmID; // Film ID, 드래그된 이미지와 비교하여 정답 여부를 판단하기 위한 ID
+    [SerializeField] public Sprite answerID; // Film ID, 드래그된 이미지와 비교하여 정답 여부를 판단하기 위한 ID
     private GameObject droppedFilmObj; // 드롭된 Film 오브젝트 기억
 
 
@@ -73,13 +73,13 @@ public class BookFilm : MonoBehaviour, IDropHandler, IPointerClickHandler
 
     public bool IsCorrectFilm()
     {
-        // 현재 오브젝트의 Film ID와 슬롯에 놓인 Film 오브젝트의 Film ID를 비교하여 정답 여부를 반환
+        // droppedFilmObj의 FilmData(Sprite)와 answerID(Sprite)를 비교하여 정답 여부를 반환
         if (droppedFilmObj != null)
         {
             Film film = droppedFilmObj.GetComponent<Film>();
-            if (film != null && film.FilmData != null)
+            if (film != null && film.FilmData != null && answerID != null)
             {
-                return film.FilmData.TestId == filmID; // Film ID가 일치하면 true, 아니면 false
+                return film.FilmData == answerID; // Film ID가 일치하면 true, 아니면 false
             }
         }
         return false; // 드롭된 이미지가 없거나 Film 컴포넌트가 없으면 false
