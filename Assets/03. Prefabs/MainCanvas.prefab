@@ -1659,7 +1659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FilmData: {fileID: 11400000, guid: 48fdcff86a83ad44582dda12e6839f2f, type: 2}
-  filmImage: {fileID: 3834014104985772659}
+  filmImage: {fileID: 0}
   filmPanel: {fileID: 1655439156455206839}
   startPosition: {x: 0, y: 0, z: 0}
   onDragParent: {fileID: 2038135858386373741}
