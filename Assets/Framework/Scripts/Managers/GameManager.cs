@@ -2,10 +2,15 @@ using UnityEngine;
 
 public class GameManager : GlobalSingletonMono<GameManager>
 {
+    #region [ Components ]
+    [SerializeField] private Canvas mainCanvas;
+    #endregion [ Components ]
+
     #region [ Private Method ]
     public void StartGame()
     {
         Debug.Log("Start Game");
+        mainCanvas.enabled = true;
     }
 
     public void OpenSettingUI()
