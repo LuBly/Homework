@@ -18,12 +18,11 @@ public class Film : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public Vector3 startPosition; // 드래그 시작 위치, 중간에 놓칠 경우 원복위치. 부모 위치로 고정해야함
 
     // 이미지 드래그 중 변경할 부모 RacTransform
-    Transform onDragParent;
+    [SerializeField] Transform onDragParent;
 
     [SerializeField] public Transform startParent; // 슬롯이 아닌 다른 오브젝트에 드랍시 원복할 부모
 
-
-    private void Start()
+    private void Awake()
     {
         filmImage = GetComponent<Image>();
     }
@@ -32,7 +31,11 @@ public class Film : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public void OnBeginDrag(PointerEventData eventData)
     {
         beingDraggImg = gameObject;
-        if (filmImage != null)
+        if(filmImage == null)
+        {
+            filmImage = GetComponent<Image>();
+        }
+        else if (filmImage != null)
         {
             filmImage.raycastTarget = false;
             imageColor = filmImage.color;
@@ -58,6 +61,7 @@ public class Film : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         {
             filmImage.color = imageColor; // 드래그 중인 이미지의 색상 적용
         }
+        Debug.Log($"onDrag: {onDragParent}, filmImage.color.a: {filmImage.color.a}");
     }
 
     public void OnEndDrag(PointerEventData eventData)
