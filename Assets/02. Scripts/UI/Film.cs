@@ -61,7 +61,6 @@ public class Film : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         {
             filmImage.color = imageColor; // 드래그 중인 이미지의 색상 적용
         }
-        Debug.Log($"onDrag: {onDragParent}, filmImage.color.a: {filmImage.color.a}");
     }
 
     public void OnEndDrag(PointerEventData eventData)
