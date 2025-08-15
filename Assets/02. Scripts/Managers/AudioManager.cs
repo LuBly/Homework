@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class AudioManager : GlobalSingletonMono<AudioManager>, IAudioPool
+public class AudioManager : GlobalSingletonMono<AudioManager>
 {
     #region [ Defines ]
     private const float initMasterVolume = 1f;
