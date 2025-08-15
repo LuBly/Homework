@@ -68,7 +68,18 @@ public class Film : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         }
         transform.SetParent(startParent);
         transform.position = startParent.position; // 기존 부모 오브젝트의 위치로 이동
-        this.SetActive(false); // 드래그 종료 후 오브젝트 비활성화
+
+        // 드래그 종료 후, 정상적으로 drop되었으면 SetActive(false), 아니라면 활성화 상태로 유지
+
+        if (transform.parent == onDragParent)
+        {
+            gameObject.SetActive(false); // 드래그 종료 후, 부모가 onDragParent라면 비활성화
+        }
+        else
+        {
+            // 다른 부모에 드롭되었을 경우, 아무동작도 하지 않음
+        }
+
         Debug.Log("드래그 종료");
     }
 

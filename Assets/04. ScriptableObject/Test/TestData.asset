@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ce4b5d31a7e7354fa793a7169072981, type: 3}
   m_Name: TestData
   m_EditorClassIdentifier: 
-  testName: 
-  TestId: 0
+  testName: "\uD14C\uC2A4\uD2B8\uB370\uC774\uD130"
+  TestId: 1
