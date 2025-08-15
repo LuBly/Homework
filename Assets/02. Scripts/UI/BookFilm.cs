@@ -50,7 +50,7 @@ public class BookFilm : MonoBehaviour, IDropHandler, IPointerClickHandler
             if (draggedImage != null)
             {
                 filmImage.sprite = draggedImage.sprite; // 드래그된 이미지의 스프라이트를 현재 오브젝트의 이미지로 설정
-                
+                Debug.Log("드롭된 이미지: " + filmImage.sprite.name);
                 droppedFilmObj = Film.beingDraggImg; // 드롭된 Film 오브젝트 기억                
                 droppedFilmObj.SetActive(false); // Film 오브젝트 비활성화
             }            
@@ -73,6 +73,9 @@ public class BookFilm : MonoBehaviour, IDropHandler, IPointerClickHandler
 
     public bool IsCorrectFilm()
     {
+        // 오브젝트가 비활성화면 정답 체크에서 제외
+        if (!gameObject.activeSelf)
+            return false;
         // droppedFilmObj의 FilmData(Sprite)와 answerID(Sprite)를 비교하여 정답 여부를 반환
         if (droppedFilmObj != null)
         {
