@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 904bd097104f2cc4e8e9ded6c71c901c, type: 3}
+  m_Name: Age8_Diary
+  m_EditorClassIdentifier: 
+  pieceImgs:
+  - {fileID: 21300000, guid: e8dc1ceb8332dd947a774206a497e687, type: 3}
+  - {fileID: 21300000, guid: 8d624f3b42065d940b817c0f614e86b2, type: 3}
+  - {fileID: 21300000, guid: ff7a15156cb1a8d498deda0ad1311894, type: 3}
+  - {fileID: 21300000, guid: fd6ad6f9485757d4da63be15ea1ba850, type: 3}
+  - {fileID: 21300000, guid: a7405ddff6709d447820d1828f255ecd, type: 3}
+  - {fileID: 21300000, guid: 532e0aa0ea9ddc04cbf39c82604119b6, type: 3}
+  answerImgs:
+  - {fileID: 21300000, guid: e8dc1ceb8332dd947a774206a497e687, type: 3}
+  - {fileID: 21300000, guid: 8d624f3b42065d940b817c0f614e86b2, type: 3}
+  - {fileID: 21300000, guid: ff7a15156cb1a8d498deda0ad1311894, type: 3}
+  desc: 
