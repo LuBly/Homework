@@ -38,6 +38,12 @@ public class BookFilm : MonoBehaviour, IDropHandler, IPointerClickHandler
 
     public void OnDrop(PointerEventData eventData)
     {
+        // 기존에 드래그 되었던 이미지가 있다면 해당 오브젝트를 활성화하고, 드래그 중이던 이미지의  스프라이트로 변경
+
+        if (droppedFilmObj != null)
+        {
+            ResetImg(); // 이전에 드롭된 Film 오브젝트의 상태를 초기화
+        }
         if (Film.beingDraggImg != null)
         {
             Image draggedImage = Film.beingDraggImg.GetComponent<Image>();
@@ -47,8 +53,9 @@ public class BookFilm : MonoBehaviour, IDropHandler, IPointerClickHandler
                 
                 droppedFilmObj = Film.beingDraggImg; // 드롭된 Film 오브젝트 기억                
                 droppedFilmObj.SetActive(false); // Film 오브젝트 비활성화
-            }
+            }            
         }
+        IsCorrectFilm(); // 정답 여부 확인
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -56,39 +63,46 @@ public class BookFilm : MonoBehaviour, IDropHandler, IPointerClickHandler
         // 클릭 시 드롭된 Film 오브젝트 활성화, BookFilm 이미지 제거
         if (droppedFilmObj != null)
         {
-            Film film = droppedFilmObj.GetComponent<Film>();
-            if (film != null)
-            {
-                droppedFilmObj.SetActive(true);
-                droppedFilmObj.transform.SetParent(film.startParent); // 부모 복원
-                droppedFilmObj.transform.position = film.startPosition; // 위치 복원
-                // 레이캐스트 타겟 활성화, 이미지 색상 원복(alpha 1로 설정), block raycasts 활성화
-
-                Image image = droppedFilmObj.GetComponent<Image>();
-                image.raycastTarget = true;                
-                var cg = droppedFilmObj.GetComponent<CanvasGroup>();
-                if (cg != null)
-                {
-                    cg.blocksRaycasts = true; // Raycast 차단 해제
-                }
-                image.color = new Color(image.color.r, image.color.g, image.color.b, 1f); // 이미지 색상 원복
-            }
+            ResetImg(); // 드롭된 Film 오브젝트의 상태를 초기화
             filmImage.sprite = null;
             droppedFilmObj = null;
+            Film.beingDraggImg = null; // 드래그 중인 이미지 초기화
+            IsCorrectFilm(); // 정답 여부 확인
         }
     }
 
     public bool IsCorrectFilm()
     {
-        // 현재 오브젝트의 Film ID와 드래그된 이미지의 Film ID를 비교하여 정답 여부를 반환
-        if (Film.beingDraggImg != null)
+        // 현재 오브젝트의 Film ID와 슬롯에 놓인 Film 오브젝트의 Film ID를 비교하여 정답 여부를 반환
+        if (droppedFilmObj != null)
         {
-            Film film = Film.beingDraggImg.GetComponent<Film>();
+            Film film = droppedFilmObj.GetComponent<Film>();
             if (film != null && film.FilmData != null)
             {
                 return film.FilmData.TestId == filmID; // Film ID가 일치하면 true, 아니면 false
             }
         }
-        return false; // 드래그된 이미지가 없거나 Film 컴포넌트가 없으면 false
+        return false; // 드롭된 이미지가 없거나 Film 컴포넌트가 없으면 false
+    }
+
+    private void ResetImg()
+    {
+        Film film = droppedFilmObj.GetComponent<Film>();
+        if (film != null)
+        {
+            droppedFilmObj.SetActive(true);
+            droppedFilmObj.transform.SetParent(film.startParent); // 부모 복원
+            droppedFilmObj.transform.position = film.startPosition; // 위치 복원
+                                                                    // 레이캐스트 타겟 활성화, 이미지 색상 원복(alpha 1로 설정), block raycasts 활성화
+
+            Image image = droppedFilmObj.GetComponent<Image>();
+            image.raycastTarget = true;
+            var cg = droppedFilmObj.GetComponent<CanvasGroup>();
+            if (cg != null)
+            {
+                cg.blocksRaycasts = true; // Raycast 차단 해제
+            }
+            image.color = new Color(image.color.r, image.color.g, image.color.b, 1f); // 이미지 색상 원복
+        }
     }
 }
