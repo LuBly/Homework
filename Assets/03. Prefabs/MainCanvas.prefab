@@ -522,7 +522,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7950593168995708788
@@ -563,7 +563,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -583,7 +583,7 @@ MonoBehaviour:
   m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1497,6 +1497,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pageDataSOs:
   - {fileID: 11400000, guid: f7565822c2a8f0e46b5444cf1971c792, type: 2}
+  - {fileID: 11400000, guid: 8c632b7890b072846880e8f10039ee42, type: 2}
+  - {fileID: 11400000, guid: 4a10ca299198019478cfc1d3d43cf308, type: 2}
+  - {fileID: 11400000, guid: b00eb85f95969ce4899913197a81c1fa, type: 2}
   films:
   - {fileID: 8721601619969169469}
   - {fileID: 2113286834952043220}
@@ -2661,7 +2664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aaecd21ad7951541873510b0d3e511d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diaryDescription: {fileID: 0}
+  diaryDescription: {fileID: 6513548819121293666}
 --- !u!1 &5315943376837771703
 GameObject:
   m_ObjectHideFlags: 0
