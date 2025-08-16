@@ -13,6 +13,7 @@ public class GameManager : GlobalSingletonMono<GameManager>
     #region [ Components ]
     [SerializeField] private UIStartMenu uiStartMenu;
     [SerializeField] private Canvas mainCanvas;
+    [SerializeField] private UIEndMenu uiEndMenu;
     [field: SerializeField] public EndlessBook book { get; private set; }
     #endregion [ Components ]
 
@@ -42,7 +43,7 @@ public class GameManager : GlobalSingletonMono<GameManager>
 
     public void EndGame()
     {
-
+        uiEndMenu.Show();
     }
 
     public void OpenSettingUI()

@@ -478,7 +478,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4292142840
-  m_fontColor: {r: 0.9716981, g: 0.90065414, b: 0.82961017, a: 1}
+  m_fontColor: {r: 0.9716981, g: 0.90065414, b: 0.82961017, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -968,6 +968,7 @@ GameObject:
   - component: {fileID: 500821202}
   - component: {fileID: 500821201}
   - component: {fileID: 500821200}
+  - component: {fileID: 500821203}
   m_Layer: 5
   m_Name: EndCanvas
   m_TagString: Untagged
@@ -1060,6 +1061,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &500821203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500821198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e96edc7b5efaeb4890685d0156daeef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endBtn: {fileID: 1540574306}
+  endBtnTxt: {fileID: 154180292}
+  endingText: {fileID: 868435710}
 --- !u!1 &589064340 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1135277545875289752, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
@@ -1328,7 +1344,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5a305d7818eda945b99a88821869719, type: 2}
   m_sharedMaterial: {fileID: -4160840269680853658, guid: c5a305d7818eda945b99a88821869719, type: 2}
@@ -2080,7 +2096,7 @@ MonoBehaviour:
   - name: FilmRewindSFX
     clip: {fileID: 8300000, guid: 5f131015aff3e5a4781f58bdcfff53be, type: 3}
   - name: PageTurn
-    clip: {fileID: 8300000, guid: 186cf22ffaae264449e086a0c4206a6d, type: 3}
+    clip: {fileID: 8300000, guid: 0089d49f27301474983f5358e98e9f19, type: 3}
 --- !u!1 &1179627437 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3316788049272370084, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
@@ -2899,7 +2915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1540574305
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2989,7 +3005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3063,6 +3079,7 @@ MonoBehaviour:
   turnTime: 1
   uiStartMenu: {fileID: 988806091}
   mainCanvas: {fileID: 1184242076}
+  uiEndMenu: {fileID: 500821203}
   <book>k__BackingField: {fileID: 1241526197}
 --- !u!114 &1588872660 stripped
 MonoBehaviour:
