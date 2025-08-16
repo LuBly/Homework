@@ -2640,9 +2640,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaf4a3fa69984a045b6ea51787e8b020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateAnmationTime: 2
+  turnTimeType: 0
+  turnTime: 1
   uiStartMenu: {fileID: 988806091}
   mainCanvas: {fileID: 1184242076}
-  book: {fileID: 680354537}
+  <book>k__BackingField: {fileID: 680354537}
 --- !u!114 &1588872660 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8721601619969169469, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}

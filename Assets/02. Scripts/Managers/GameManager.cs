@@ -5,13 +5,14 @@ public class GameManager : GlobalSingletonMono<GameManager>
 {
     #region [ Fields ]
     [SerializeField] private float stateAnmationTime = 2f;
+    [SerializeField] private EndlessBook.PageTurnTimeTypeEnum turnTimeType = EndlessBook.PageTurnTimeTypeEnum.TotalTurnTime;
     [SerializeField] private float turnTime = 1f;
     #endregion [ Fields ]
 
     #region [ Components ]
     [SerializeField] private UIStartMenu uiStartMenu;
     [SerializeField] private Canvas mainCanvas;
-    [SerializeField] private EndlessBook book;
+    [field: SerializeField] public EndlessBook book { get; private set; }
     #endregion [ Components ]
 
     #region [ Public Method ]
@@ -54,22 +55,17 @@ public class GameManager : GlobalSingletonMono<GameManager>
         mainCanvas.enabled = true;
     }
 
-    public void OnTurnButtonClicked(int direction)
+    public void NextPage()
     {
-        if (direction == -1)
-        {
-            book.TurnBackward(turnTime,
-                onCompleted: OnBookTurnToPageCompleted,
-                onPageTurnStart: OnPageTurnStart,
-                onPageTurnEnd: OnPageTurnEnd);
-        }
-        else
-        {
-            book.TurnForward(turnTime,
-                onCompleted: OnBookTurnToPageCompleted,
-                onPageTurnStart: OnPageTurnStart,
-                onPageTurnEnd: OnPageTurnEnd);
-        }
+        book.TurnForward(turnTime,
+            onCompleted: OnBookTurnToPageCompleted,
+            onPageTurnStart: OnPageTurnStart,
+            onPageTurnEnd: OnPageTurnEnd);
+    }
+
+    public void TurnToPage(int pgNum)
+    {
+        book.TurnToPage(pgNum, turnTimeType, turnTime);
     }
 
     private void OnBookStateChanged(EndlessBook.StateEnum fromState, EndlessBook.StateEnum toState, int currentPageNumber)
