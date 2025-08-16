@@ -1628,6 +1628,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2121637228}
     m_Modifications:
+    - target: {fileID: 171159000892557399, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
+      propertyPath: originImg
+      value: 
+      objectReference: {fileID: 21300000, guid: ea1393289b29df044a60b0e675fbe855, type: 3}
+    - target: {fileID: 579818968003813715, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 579818968003813715, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ea1393289b29df044a60b0e675fbe855, type: 3}
+    - target: {fileID: 873051576640426321, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 873051576640426321, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ea1393289b29df044a60b0e675fbe855, type: 3}
+    - target: {fileID: 901345875999467207, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 901345875999467207, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ea1393289b29df044a60b0e675fbe855, type: 3}
     - target: {fileID: 1206617931432114681, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
       propertyPath: m_Name
       value: MainCanvas
@@ -2056,6 +2084,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6951235980187884634, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
+      propertyPath: bookMaterialHandler
+      value: 
+      objectReference: {fileID: 1241526199}
     - target: {fileID: 7240431213744297396, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -42
@@ -2063,6 +2095,10 @@ PrefabInstance:
     - target: {fileID: 7240431213744297396, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -42
+      objectReference: {fileID: 0}
+    - target: {fileID: 7371072115205677093, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7917662169671062069, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2116,6 +2152,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8201793571172182989, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
+      propertyPath: originImg
+      value: 
+      objectReference: {fileID: 21300000, guid: ea1393289b29df044a60b0e675fbe855, type: 3}
     - target: {fileID: 8249366017874733775, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2140,9 +2180,25 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8285839458470927809, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
+      propertyPath: originImg
+      value: 
+      objectReference: {fileID: 21300000, guid: ea1393289b29df044a60b0e675fbe855, type: 3}
     - target: {fileID: 8617159805896200079, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8807631352346747510, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8807631352346747510, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ea1393289b29df044a60b0e675fbe855, type: 3}
+    - target: {fileID: 8807631352346747510, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8993572872506597496, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
       propertyPath: m_Type
@@ -2180,14 +2236,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3256611424003063799, guid: f25b5ee1ba1a61449935b5d34e24a198, type: 3}
-      propertyPath: 'm_Materials.Array.data[2]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 4e0086688255dbe4ebb353358ff032d6, type: 2}
-    - target: {fileID: 3256611424003063799, guid: f25b5ee1ba1a61449935b5d34e24a198, type: 3}
-      propertyPath: 'm_Materials.Array.data[3]'
-      value: 
-      objectReference: {fileID: 2100000, guid: baf7fdb09137fcf48a9a56dcbca07bf0, type: 2}
     - target: {fileID: 5973718624971582609, guid: f25b5ee1ba1a61449935b5d34e24a198, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.012
@@ -2232,14 +2280,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book
       objectReference: {fileID: 0}
-    - target: {fileID: 8311760462955760490, guid: f25b5ee1ba1a61449935b5d34e24a198, type: 3}
-      propertyPath: 'm_Materials.Array.data[2]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 4e0086688255dbe4ebb353358ff032d6, type: 2}
-    - target: {fileID: 8311760462955760490, guid: f25b5ee1ba1a61449935b5d34e24a198, type: 3}
-      propertyPath: 'm_Materials.Array.data[3]'
-      value: 
-      objectReference: {fileID: 2100000, guid: baf7fdb09137fcf48a9a56dcbca07bf0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2254,6 +2294,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b15ee817545aa6a49921977f31ae51e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1241526199 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5738814954114627868, guid: f25b5ee1ba1a61449935b5d34e24a198, type: 3}
+  m_PrefabInstance: {fileID: 1241526196}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94601e13aaffb7640b1dd39b0dfca261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1245222046 stripped
@@ -2760,7 +2811,7 @@ MonoBehaviour:
   PuzzleUI: {fileID: 589064340}
   NextPageBtn: {fileID: 958440716}
   hintDiary: {fileID: 0}
-  currentPageIndex: 0
+  bookMaterialHandler: {fileID: 0}
   cameraLife: 3
 --- !u!1 &2029941234
 GameObject:

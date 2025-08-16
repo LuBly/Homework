@@ -17,6 +17,7 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
     public GameObject PuzzleUI;
     public GameObject NextPageBtn;
     public HintDiary hintDiary;
+    public BookMaterialHandler bookMaterialHandler;
     private float camShakeSec = 0.2f;
 
     [SerializeField] public int currentPageIndex { get; private set; } = 0;
@@ -49,8 +50,28 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
     public void PageComplete()
     {
         var videoClip = pageDataSOs[currentPageIndex].ViduoClip;
+        switch (currentPageIndex)
+        {
+            case 0:
+                bookMaterialHandler.FirstPageGo();
+                break;
+            case 1:
+                bookMaterialHandler.ThirdPageGo();
+                break;
+            case 2:
+                bookMaterialHandler.FifthPageGo();
+                break;
+            case 3:
+                bookMaterialHandler.SeventhPageGo();
+                break;
+            case 4:
+                bookMaterialHandler.NinethPageGo();
+                break;
+        }
         currentPageIndex++;
-        VideoManager.inst.PlayVideo(videoClip);
+
+
+        //VideoManager.inst.PlayVideo(videoClip);
         
         //GameManager.inst.NextPage();
         // 페이지 설정 후 FilmContainer 닫기

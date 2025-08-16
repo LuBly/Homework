@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class BookFilm : MonoBehaviour, IDropHandler, IPointerClickHandler
 {
     // 드래그된 오브젝트를 받았을 때 호출되는 함수
+    [SerializeField] private Sprite originImg;
     [SerializeField] private Image filmImage; // 현재 오브젝트의 Image 컴포넌트
     [SerializeField] public Sprite answerID; // Film ID, 드래그된 이미지와 비교하여 정답 여부를 판단하기 위한 ID
     private GameObject droppedFilmObj; // 드롭된 Film 오브젝트 기억
@@ -42,7 +43,7 @@ public class BookFilm : MonoBehaviour, IDropHandler, IPointerClickHandler
         if (droppedFilmObj != null)
         {
             ResetImg();
-            filmImage.sprite = null;
+            filmImage.sprite = originImg;
             droppedFilmObj = null;
         }
         // 새 드랍이 들어오면 이미지 할당 및 오브젝트 갱신
@@ -118,7 +119,7 @@ public class BookFilm : MonoBehaviour, IDropHandler, IPointerClickHandler
         if (droppedFilmObj != null)
         {
             ResetImg(); // 이전에 드롭된 Film 오브젝트의 상태를 초기화
-            filmImage.sprite = null;
+            filmImage.sprite = originImg;
             droppedFilmObj = null;
             Film.beingDraggImg = null; // 드래그 중인 이미지 초기화
         }

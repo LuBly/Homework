@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class BookMaterialHandler : MonoBehaviour
 {
@@ -85,5 +86,9 @@ public class BookMaterialHandler : MonoBehaviour
         //머티리얼 확인구간이자 마지막 값 정확하게 세팅
         tempvalue = 1f;
         materials[index].SetFloat("_TimeGoStoper", tempvalue);
+
+
+        var videoClip = PageSetting.inst.pageDataSOs[index].ViduoClip;
+        VideoManager.inst.PlayVideo(videoClip);
     }
 }
