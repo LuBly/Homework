@@ -31,7 +31,7 @@ MonoBehaviour:
     \uD588\uB2E4.\r\n\uB458\uC774 \uC881\uC740 \uC6B0\uC0B0 \uC18D\uC5D0 \uBAB8\uC744
     \uAE30\uC6B8\uC5EC \uBE57\uC18D\uC744 \uAC78\uC744 \uB54C, \uD2B9\uBCC4\uD55C
     \uB9D0\uC740 \uC5C6\uC5B4\uB3C4 \uC774\uC0C1\uD558\uAC8C \uB530\uB73B\uD588\uB2E4."
-  ViduoClip: {fileID: 32900000, guid: d8cf956295fed1e4a9ebc7e896706c3b, type: 3}
+  VideoClip: {fileID: 32900000, guid: d8cf956295fed1e4a9ebc7e896706c3b, type: 3}
   Keywords:
   - "\uAD50\uC2E4 \uCC3D\uAC00\uC5D0\uC11C \uC74C\uC545"
   - "\uC9D1\uC5D0 \uB193\uACE0 \uC628 \uC6B0\uC0B0"

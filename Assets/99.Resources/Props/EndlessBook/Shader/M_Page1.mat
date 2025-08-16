@@ -177,7 +177,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _LerpValue: 0
+    - _LerpValue: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -190,7 +190,7 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _TimeGoStoper: 0
+    - _TimeGoStoper: 1
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:

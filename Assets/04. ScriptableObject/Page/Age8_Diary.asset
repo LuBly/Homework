@@ -33,7 +33,7 @@ MonoBehaviour:
     \uC6C3\uC5C8\uB2E4.\r\n\uD574\uAC00 \uAE30\uC6B8 \uBB34\uB835, \uC5C4\uB9C8\uC758
     \uBD80\uB984\uC5D0 \uBC1C\uBC14\uB2E5\uC5D0 \uBAA8\uB798\uB97C \uBB3B\uD78C \uCC44
     \uC9D1\uC73C\uB85C \uB2EC\uB824\uAC14\uB2E4."
-  ViduoClip: {fileID: 32900000, guid: fd4e4514a4f8b3644926b59ac932b700, type: 3}
+  VideoClip: {fileID: 32900000, guid: fd4e4514a4f8b3644926b59ac932b700, type: 3}
   Keywords:
   - "\uBAA8\uB798\uBC2D"
   - "\uC131\uC744 \uC313\uC558\uB2E4. "
