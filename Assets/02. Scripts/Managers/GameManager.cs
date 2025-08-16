@@ -40,6 +40,11 @@ public class GameManager : GlobalSingletonMono<GameManager>
         CameraManager.inst.TransCamera3To2(OnTransEnd);
     }
 
+    public void EndGame()
+    {
+
+    }
+
     public void OpenSettingUI()
     {
         Debug.Log("OpenSetting UI");
