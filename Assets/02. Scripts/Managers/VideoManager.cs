@@ -5,6 +5,7 @@ public class VideoManager : GlobalSingletonMono<VideoManager>
 {
     #region [ Components ]
     [SerializeField] private VideoPlayer player;
+    [SerializeField] private GameObject videoObject;
     #endregion [ Components ]
 
     #region [ Unity Method ]
@@ -18,13 +19,14 @@ public class VideoManager : GlobalSingletonMono<VideoManager>
     public void PlayVideo(VideoClip clip)
     {
         if (player.isPlaying) return;
+        videoObject.SetActive(true);
         player.clip = clip;
         player.Play();
     }
 
     void OnVideoEnd(VideoPlayer vp)
     {
-        this.SetActive(false);
+        videoObject.SetActive(false);
         Debug.Log("Video has ended.");
         
     }
