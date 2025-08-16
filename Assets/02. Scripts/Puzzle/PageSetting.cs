@@ -16,6 +16,7 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
     public GameObject FilmContainer;
     public GameObject PuzzleUI;
     public GameObject NextPageBtn;
+    public HintDiary hintDiary;
     private float camShakeSec = 0.2f;
 
     [SerializeField] private int currentPageIndex = 0;
@@ -46,6 +47,7 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
 
         filmSetting(); // Film 설정
         BookFilmSetting(); // BookFilm 설정
+        DiarySetting(); // 일기 설정
     }
 
     public void PageComplete()
@@ -53,6 +55,7 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
         currentPageIndex++;
         // 페이지 설정 후 FilmContainer 닫기
         UIManager.inst.CloseUI(PuzzleUI);
+        UIManager.inst.CloseUI(hintDiary.gameObject);
         UIManager.inst.OpenUI(NextPageBtn); // 다음 페이지 버튼 활성화
     }
 
@@ -194,5 +197,11 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
                 }
             }
         }
+    }
+
+    private void DiarySetting()
+    {
+        UIManager.inst.OpenUI(hintDiary.gameObject);
+        hintDiary.SetDiary(currentPageIndex);        
     }
 }
