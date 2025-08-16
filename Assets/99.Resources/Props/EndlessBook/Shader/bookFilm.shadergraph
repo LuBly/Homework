@@ -251,6 +251,9 @@
         },
         {
             "m_Id": "d0a14a3347264641892b72527e0f974b"
+        },
+        {
+            "m_Id": "2d616190c8594f67be1505eb83a09dbb"
         }
     ],
     "m_GroupDatas": [],
@@ -492,6 +495,20 @@
                     "m_Id": "cb2b84232fa64ea8a5fb29efe72c49f3"
                 },
                 "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "2d616190c8594f67be1505eb83a09dbb"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "e1618fe45b7242a3828c2ddb2612011a"
+                },
+                "m_SlotId": 1
             }
         },
         {
@@ -3205,6 +3222,42 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
+    "m_ObjectId": "2d616190c8594f67be1505eb83a09dbb",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "Property",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -2114.059326171875,
+            "y": -1382.8944091796875,
+            "width": 0.0,
+            "height": 0.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "55f0f4492904464ba1290217d32660ea"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Property": {
+        "m_Id": "c7a9ed2e846e48d0980c2c80a506b380"
+    }
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "2d711cfd509b4502b7a980a1125d91ab",
     "m_Id": 2,
@@ -4752,6 +4805,19 @@
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
+    "m_ObjectId": "55f0f4492904464ba1290217d32660ea",
+    "m_Id": 0,
+    "m_DisplayName": "Answer Texture",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_BareResource": false
 }
 
 {
@@ -8192,7 +8258,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "m_SerializedTexture": "",
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"572ba753e7f72734d8c124af67a394f9\",\"type\":3}}",
         "m_Guid": ""
     },
     "isMainTexture": false,
