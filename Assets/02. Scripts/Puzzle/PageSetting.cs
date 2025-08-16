@@ -1,4 +1,4 @@
-﻿using Unity.VisualScripting;
+﻿
 using UnityEngine;
 
 /// <summary>
@@ -49,6 +49,9 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
 
     public void PageComplete()
     {
+        var clip = AudioManager.inst.audioDictionary["FilmRewindSFX"];
+        AudioManager.inst.PlaySFX(clip);
+
         var videoClip = pageDataSOs[currentPageIndex].ViduoClip;
         switch (currentPageIndex)
         {
@@ -84,6 +87,8 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
 
     public void Incorrect()
     {
+        var clip = AudioManager.inst.audioDictionary["FailSFX"];
+        AudioManager.inst.PlaySFX(clip);
         cameraLife--;
         if (cameraLife <= 0)
         {

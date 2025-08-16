@@ -21,14 +21,20 @@ public class GameManager : GlobalSingletonMono<GameManager>
     #endregion [ Events ]
 
     #region [ Public Method ]
+    #endregion [ Public Method ] 
+
+    #region [ Public Method ]
     public void StartGame()
     {
+        var clip = AudioManager.inst.audioDictionary["BtnSFX"];
+        AudioManager.inst.PlaySFX(clip);
+
         Debug.Log("Start Game");
         var changeState = true;
         var newState = EndlessBook.StateEnum.OpenMiddle;
 
         if(changeState)
-            book.SetState(newState, stateAnmationTime, OnBookStateChanged);
+            book.SetState(newState, stateAnmationTime, null);
 
         DisableStartMenu();
         CameraManager.inst.TransCamera3To2(OnTransEnd);
@@ -41,6 +47,8 @@ public class GameManager : GlobalSingletonMono<GameManager>
 
     public void Exit()
     {
+        var clip = AudioManager.inst.audioDictionary["BtnSFX"];
+        AudioManager.inst.PlaySFX(clip);
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
@@ -97,6 +105,9 @@ public class GameManager : GlobalSingletonMono<GameManager>
     {
         Debug.Log("State set to " + toState + ". Current Page Number = " + currentPageNumber);
         Debug.Log("게임 엔딩 로직 실행");
+        var clip = AudioManager.inst.audioDictionary["EndingBGM"];
+        AudioManager.inst.PlayBGM(clip);
+        EndGame();
     }
 
     private void OnBookTurnToPageCompleted(EndlessBook.StateEnum fromState, EndlessBook.StateEnum toState, int currentPageNumber)
@@ -107,6 +118,8 @@ public class GameManager : GlobalSingletonMono<GameManager>
     private void OnPageTurnStart(Page page, int pageNumberFront, int pageNumberBack, int pageNumberFirstVisible, int pageNumberLastVisible, Page.TurnDirectionEnum turnDirection)
     {
         Debug.Log("OnPageTurnStart: front [" + pageNumberFront + "] back [" + pageNumberBack + "] fv [" + pageNumberFirstVisible + "] lv [" + pageNumberLastVisible + "] dir [" + turnDirection + "]");
+        var clip = AudioManager.inst.audioDictionary["PageTurn"];
+        AudioManager.inst.PlaySFX(clip);
     }
 
     protected virtual void OnPageTurnEnd(Page page, int pageNumberFront, int pageNumberBack, int pageNumberFirstVisible, int pageNumberLastVisible, Page.TurnDirectionEnum turnDirection)

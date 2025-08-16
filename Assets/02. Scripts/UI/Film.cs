@@ -30,6 +30,8 @@ public class Film : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     // 드래그 시작 시 호출되는 함수
     public void OnBeginDrag(PointerEventData eventData)
     {
+        var clip = AudioManager.inst.audioDictionary["FilmInteractionSFX"];
+        AudioManager.inst.PlaySFX(clip);
         beingDraggImg = gameObject;
         if(filmImage == null)
         {
@@ -96,6 +98,8 @@ public class Film : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        var clip = AudioManager.inst.audioDictionary["FilmInteractionSFX"];
+        AudioManager.inst.PlaySFX(clip);
         // 클릭하면 해당 이미지 확대 => 다시 누르면 원래 자리에 원래 크기로
         // 혹은 클릭 시 DisplayImage로 확대된 이미지 표시
         if (filmPanel != null && filmImage != null)

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -12,6 +13,7 @@ public class BookFilm : MonoBehaviour, IDropHandler, IPointerClickHandler
     [SerializeField] public Sprite answerID; // Film ID, 드래그된 이미지와 비교하여 정답 여부를 판단하기 위한 ID
     private GameObject droppedFilmObj; // 드롭된 Film 오브젝트 기억
 
+    private AudioClip clip;
 
     private void Awake()
     {
@@ -52,6 +54,8 @@ public class BookFilm : MonoBehaviour, IDropHandler, IPointerClickHandler
             Film film = Film.beingDraggImg.GetComponent<Film>();
             if (film != null && film.filmImage != null)
             {
+                var clip = AudioManager.inst.audioDictionary["FilmInteractionSFX"];
+                AudioManager.inst.PlaySFX(clip);
                 filmImage.sprite = film.filmImage.sprite;
                 Debug.Log("드롭된 이미지: " + filmImage.sprite?.name);
                 droppedFilmObj = Film.beingDraggImg;
@@ -71,6 +75,8 @@ public class BookFilm : MonoBehaviour, IDropHandler, IPointerClickHandler
         // 클릭 시 드롭된 Film 오브젝트 활성화, BookFilm 이미지 제거
         if (droppedFilmObj != null)
         {
+            var clip = AudioManager.inst.audioDictionary["FilmInteractionSFX"];
+            AudioManager.inst.PlaySFX(clip);
             RestPosition(); // 이전에 드롭된 Film 오브젝트의 상태를 초기화
             IsCorrectFilm(); // 정답 여부 확인
         }
