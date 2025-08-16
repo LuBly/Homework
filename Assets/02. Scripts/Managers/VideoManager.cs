@@ -35,7 +35,7 @@ public class VideoManager : GlobalSingletonMono<VideoManager>
     private IEnumerator DelayPaly()
     {
         var time = 0f;
-        while (time < 2f)
+        while (time < 1f)
         {
             time += Time.deltaTime;
             yield return null;
