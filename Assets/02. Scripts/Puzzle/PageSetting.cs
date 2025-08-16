@@ -206,4 +206,29 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
         UIManager.inst.OpenUI(hintDiary.gameObject);
         hintDiary.SetDiary(currentPageIndex);        
     }
+
+    public void ShowHint()
+    {
+        if(pageDataSOs.Length > currentPageIndex)
+        {
+            // 현재 페이지의 힌트 키워드 가져오기
+
+            // List를 string[]로 변환
+
+            string[] keywords = pageDataSOs[currentPageIndex].Keywords?.ToArray();
+
+            if (keywords != null && keywords.Length > 0)
+            {
+                hintDiary.ShowHint(currentPageIndex, keywords);
+            }
+            else
+            {
+                Debug.LogWarning("현재 페이지에 힌트 키워드가 없습니다.");
+            }
+        }
+        else
+        {
+            Debug.LogError("현재 페이지 인덱스가 범위를 벗어났습니다.");
+        }
+    }
 }
