@@ -126,7 +126,7 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
     private void filmSetting()
     {
         //모든 film에 pageDataSO의 pieceImgs를 랜덤으로 할당, 중복 불가, answerImgs는 BookFilm에 할당됨(순서대로)
-        int[] randomindexs = new int[pageDataSOs[currentPageIndex].pieceImgs.Count]; // 랜덤 인덱스 배열 초기화
+        int[] randomindexs = new int[pageDataSOs[currentPageIndex].PieceImgs.Count]; // 랜덤 인덱스 배열 초기화
 
 
         for (int i = 0; i < films.Length; i++)
@@ -134,11 +134,11 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
             if (pageDataSOs.Length > currentPageIndex)
             {
                 var pageData = pageDataSOs[currentPageIndex];
-                if (pageData != null && pageData.pieceImgs.Count > 0)
+                if (pageData != null && pageData.PieceImgs.Count > 0)
                 {
                     //pageData의 pieceImgs의 개수가 films의 개수보다 작을 경우 해당 films 오브젝트는 비활성화
                     // films[i]가 pageData.pieceImgs의 개수보다 크면 films[i]를 비활성화
-                    if (i >= pageData.pieceImgs.Count)
+                    if (i >= pageData.PieceImgs.Count)
                     {
                         films[i].gameObject.SetActive(false);
                         continue; // 다음 반복으로 넘어감
@@ -155,12 +155,12 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
                     int randomIndex;
                     do
                     {
-                        randomIndex = Random.Range(0, pageData.pieceImgs.Count);
+                        randomIndex = Random.Range(0, pageData.PieceImgs.Count);
                     } while (randomindexs[randomIndex] != 0); // 이미 할당된 인덱스는 제외
                     randomindexs[randomIndex] = 1; // 해당 인덱스는 할당되었음을 표시
 
                     // films[i]의 pieceImg에 pageData.pieceImgs[randomIndex]를 할당
-                    films[i].filmImage.sprite = pageData.pieceImgs[randomIndex];
+                    films[i].filmImage.sprite = pageData.PieceImgs[randomIndex];
                 }
 
             }
@@ -175,7 +175,7 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
             if (pageDataSOs.Length > currentPageIndex)
             {
                 // answerImgs가 bookFilms의 개수보다 작을 경우 해당 bookFilm 오브젝트는 비활성화
-                if (i >= pageDataSOs[currentPageIndex].answerImgs.Count)
+                if (i >= pageDataSOs[currentPageIndex].AnswerImgs.Count)
                 {
                     bookFilms[i].gameObject.SetActive(false);
                     continue; // 다음 반복으로 넘어감
@@ -188,9 +188,9 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
                 }
 
                 var pageData = pageDataSOs[currentPageIndex];
-                if (pageData != null && pageData.answerImgs.Count > i)
+                if (pageData != null && pageData.AnswerImgs.Count > i)
                 {
-                    bookFilms[i].answerID = pageData.answerImgs[i];
+                    bookFilms[i].answerID = pageData.AnswerImgs[i];
                 }
             }
         }
