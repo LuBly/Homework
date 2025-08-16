@@ -1,3 +1,4 @@
+using System;
 using echo17.EndlessBook;
 using UnityEngine;
 
@@ -14,6 +15,10 @@ public class GameManager : GlobalSingletonMono<GameManager>
     [SerializeField] private Canvas mainCanvas;
     [field: SerializeField] public EndlessBook book { get; private set; }
     #endregion [ Components ]
+
+    #region [ Events ]
+    private Action onPageTurnEnd;
+    #endregion [ Events ]
 
     #region [ Public Method ]
     public void StartGame()
@@ -55,8 +60,9 @@ public class GameManager : GlobalSingletonMono<GameManager>
         mainCanvas.enabled = true;
     }
 
-    public void NextPage()
+    public void NextPage(Action onPageTurnEnd = null)
     {
+        this.onPageTurnEnd = onPageTurnEnd;
         book.TurnForward(turnTime,
             onCompleted: OnBookTurnToPageCompleted,
             onPageTurnStart: OnPageTurnStart,
@@ -85,6 +91,7 @@ public class GameManager : GlobalSingletonMono<GameManager>
 
     protected virtual void OnPageTurnEnd(Page page, int pageNumberFront, int pageNumberBack, int pageNumberFirstVisible, int pageNumberLastVisible, Page.TurnDirectionEnum turnDirection)
     {
+        onPageTurnEnd?.Invoke();
         Debug.Log("OnPageTurnEnd: front [" + pageNumberFront + "] back [" + pageNumberBack + "] fv [" + pageNumberFirstVisible + "] lv [" + pageNumberLastVisible + "] dir [" + turnDirection + "]");
     }
     #endregion [ Internal Method ]

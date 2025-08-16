@@ -38,7 +38,7 @@ MonoBehaviour:
     \uC774\uB984\uC744 \uBD80\uB974\uB294 \uC18C\uB9AC\uAC00 \uB4E4\uB838\uB2E4.\v\uBC1C\uBC14\uB2E5\uC5D0
     \uBAA8\uB798\uAC00 \uBB3B\uC740 \uCC44\uB85C \uB2EC\uB824\uAC00\uBA74\uC11C,
     \uC624\uB298 \uD558\uB8E8\uAC00 \uAF2D \uAFC8\uCC98\uB7FC \uB290\uAEF4\uC84C\uB2E4.\r"
-  ViduoClip: {fileID: 0}
+  ViduoClip: {fileID: 32900000, guid: fd4e4514a4f8b3644926b59ac932b700, type: 3}
   Keywords:
   - "\uBAA8\uB798\uBC2D"
   - "\uC131\uC744 \uC313\uC558\uB2E4. "

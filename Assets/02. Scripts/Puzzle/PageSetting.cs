@@ -52,11 +52,16 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
 
     public void PageComplete()
     {
+        var videoClip = pageDataSOs[currentPageIndex].ViduoClip;
         currentPageIndex++;
-        GameManager.inst.NextPage();
+        VideoManager.inst.PlayVideo(videoClip);
+        
+        //GameManager.inst.NextPage();
         // 페이지 설정 후 FilmContainer 닫기
         UIManager.inst.CloseUI(PuzzleUI);
         UIManager.inst.CloseUI(hintDiary.gameObject);
+
+
         UIManager.inst.OpenUI(NextPageBtn); // 다음 페이지 버튼 활성화
     }
 
@@ -119,8 +124,14 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
 
     public void NextPage()
     {
+        GameManager.inst.NextPage(SetNextPageUI);
+        
+    }
+
+    private void SetNextPageUI()
+    {
         UIManager.inst.OpenUI(PuzzleUI);
-        if(!FilmContainer.activeSelf)
+        if (!FilmContainer.activeSelf)
             UIManager.inst.OpenUI(FilmContainer);
         Setting();
         UIManager.inst.CloseUI(FilmContainer); // FilmContainerUI 닫기
