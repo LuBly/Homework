@@ -18,7 +18,7 @@ public class HintDiary : MonoBehaviour
         {
             if (!string.IsNullOrEmpty(keyword))
             {
-                string highlighted = $"<color=#FFDD00><b>{keyword}</b></color>";
+                string highlighted = $"<color=#FF2222><b>{keyword}</b></color>";
                 desc = desc.Replace(keyword, highlighted);
             }
         }
