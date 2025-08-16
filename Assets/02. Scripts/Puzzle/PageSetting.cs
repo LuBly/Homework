@@ -19,7 +19,7 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
     public HintDiary hintDiary;
     private float camShakeSec = 0.2f;
 
-    [SerializeField] private int currentPageIndex = 0;
+    [SerializeField] public int currentPageIndex { get; private set; } = 0;
     [SerializeField] private int cameraLife = 3; // 카메라 생명 초기값(전부 감소하면 게임 오버, Index 0으로 돌아감)
 
     private void Start()
@@ -38,10 +38,6 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
         }
         else if (currentPageIndex >= pageDataSOs.Length)
         {
-            Debug.Log("게임 전체 페이지를 모두 완료했습니다.");
-            //게임 종료 로직
-            UIManager.inst.CloseUI(PuzzleUI);
-            Debug.Log("게임 엔딩 로직 실행");
             return;
         }
 

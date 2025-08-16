@@ -62,11 +62,21 @@ public class GameManager : GlobalSingletonMono<GameManager>
 
     public void NextPage(Action onPageTurnEnd = null)
     {
+
         this.onPageTurnEnd = onPageTurnEnd;
-        book.TurnForward(turnTime,
+        if (PageSetting.inst.currentPageIndex >= PageSetting.inst.pageDataSOs.Length)
+        {
+            UIManager.inst.CloseUI(PageSetting.inst.PuzzleUI);
+            UIManager.inst.CloseUI(PageSetting.inst.NextPageBtn);
+            CloseBook();
+        }
+        else
+        {
+            book.TurnForward(turnTime,
             onCompleted: OnBookTurnToPageCompleted,
             onPageTurnStart: OnPageTurnStart,
             onPageTurnEnd: OnPageTurnEnd);
+        }
     }
 
     public void TurnToPage(int pgNum)
@@ -74,9 +84,19 @@ public class GameManager : GlobalSingletonMono<GameManager>
         book.TurnToPage(pgNum, turnTimeType, turnTime);
     }
 
+    public void CloseBook()
+    {
+        var changeState = true;
+        var newState = EndlessBook.StateEnum.ClosedBack;
+
+        if (changeState)
+            book.SetState(newState, stateAnmationTime, OnBookStateChanged);
+    }
+
     private void OnBookStateChanged(EndlessBook.StateEnum fromState, EndlessBook.StateEnum toState, int currentPageNumber)
     {
         Debug.Log("State set to " + toState + ". Current Page Number = " + currentPageNumber);
+        Debug.Log("게임 엔딩 로직 실행");
     }
 
     private void OnBookTurnToPageCompleted(EndlessBook.StateEnum fromState, EndlessBook.StateEnum toState, int currentPageNumber)
