@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class CameraManager : GlobalSingletonMono<CameraManager>
 {
     #region [ Components ] 
+    [SerializeField] private CinemachineBrain brain;
     [SerializeField] private CinemachineCamera cam2d;
     [SerializeField] private CinemachineCamera cam3d;
     #endregion [ Components ]
@@ -17,15 +19,12 @@ public class CameraManager : GlobalSingletonMono<CameraManager>
     [SerializeField] private float amplitudeValue;
     private Coroutine cameraShakeEffectCoroutine;
     private WaitForSeconds wait;
+
+    private Coroutine transCoroutine;
+    private WaitForSeconds transDelayTime;
     #endregion [ Fields ]
 
     #region [ Unity Method ]
-    /*
-    private void Awake()
-    {
-        //shakeCam = cam2d.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-    }
-    */
     #endregion [ Unity Method ]
 
     #region [ Public Method ]
@@ -37,11 +36,30 @@ public class CameraManager : GlobalSingletonMono<CameraManager>
         curCam = cam3d;
     }
     [ContextMenu("3to2")]
-    public void TransCamera3To2()
+    public void TransCamera3To2(Action onTransEnd = null)
     {
+        curCam = cam2d;
         cam2d.enabled = true;
         cam3d.enabled = false;
-        curCam = cam2d;
+
+        if (transCoroutine != null)
+        {
+            StopCoroutine(transCoroutine);
+        }
+        transCoroutine = StartCoroutine(delayOpen(onTransEnd));
+    }
+
+    private IEnumerator delayOpen(Action onTransEnd = null)
+    {
+        if (transDelayTime == null)
+        {
+            transDelayTime = new WaitForSeconds(brain.DefaultBlend.BlendTime);
+        }
+
+        yield return transDelayTime;
+
+        // 차후에는 책 펼쳐지는게 끝나면 invoke
+        onTransEnd?.Invoke();
     }
 
     public void CameraShakeEffect(float duration)

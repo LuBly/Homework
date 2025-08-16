@@ -3,14 +3,16 @@ using UnityEngine;
 public class GameManager : GlobalSingletonMono<GameManager>
 {
     #region [ Components ]
+    [SerializeField] private UIStartMenu uiStartMenu;
     [SerializeField] private Canvas mainCanvas;
     #endregion [ Components ]
 
-    #region [ Private Method ]
+    #region [ Public Method ]
     public void StartGame()
     {
         Debug.Log("Start Game");
-        mainCanvas.enabled = true;
+        DisableStartMenu();
+        CameraManager.inst.TransCamera3To2(OnTransEnd);
     }
 
     public void OpenSettingUI()
@@ -26,5 +28,18 @@ public class GameManager : GlobalSingletonMono<GameManager>
         Application.Quit();
 #endif
     }
-#endregion [ Private Method ]
+    #endregion [ Public Method ]
+
+    #region [ Internal Method ]
+    private void DisableStartMenu()
+    {
+        uiStartMenu.UIStartSeq();
+    }
+
+    private void OnTransEnd()
+    {
+        mainCanvas.enabled = true;
+    }
+    #endregion [ Internal Method ]
+
 }
