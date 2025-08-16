@@ -16,6 +16,7 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
     public GameObject FilmContainer;
     public GameObject PuzzleUI;
     public GameObject NextPageBtn;
+    private float camShakeSec = 0.2f;
 
     [SerializeField] private int currentPageIndex = 0;
     [SerializeField] private int cameraLife = 3; // 카메라 생명 초기값(전부 감소하면 게임 오버, Index 0으로 돌아감)
@@ -66,10 +67,16 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
         }
         else
         {
-            GameObject lifUI = CameraLifeUIs[cameraLife-1]; // 2 1 0 순서로 UI를 가져와서 비활성화
+            GameObject lifUI = CameraLifeUIs[cameraLife]; // 3 2 1 0 순서로 UI를 가져와서 비활성화
             if (lifUI != null)
             {
                 UIManager.inst.CloseUI(lifUI); // 현재 생명 UI 닫기
+                if(CameraManager.inst != null)
+                    CameraManager.inst.CameraShakeEffect(camShakeSec);
+                else
+                {
+                    //카메라 매니저가 없으면 그냥 지나감
+                }
                 Debug.Log("카메라 생명 감소: " + cameraLife);
             }
             else

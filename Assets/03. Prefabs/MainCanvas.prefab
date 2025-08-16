@@ -759,7 +759,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6110652631972591114}
   - {fileID: 680622878406150276}
   - {fileID: 7023289125551394691}
   m_Father: {fileID: 0}
@@ -776,7 +775,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1206617931432114681}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -804,10 +803,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1581,7 +1580,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -170, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 340, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &8671757805983495627
@@ -2359,82 +2358,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   filmImage: {fileID: 579818968003813715}
   answerID: {fileID: 0}
---- !u!1 &4843002777095550429
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6110652631972591114}
-  - component: {fileID: 4033378044754331193}
-  m_Layer: 5
-  m_Name: PageData
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &6110652631972591114
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4843002777095550429}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2038135858386373741}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4033378044754331193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4843002777095550429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce1012ef92c73af45befc406ba36874e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pageDataSOs:
-  - {fileID: 11400000, guid: f7565822c2a8f0e46b5444cf1971c792, type: 2}
-  films:
-  - {fileID: 8721601619969169469}
-  - {fileID: 2113286834952043220}
-  - {fileID: 3369472762764475080}
-  - {fileID: 4959502221137713016}
-  - {fileID: 6033920997730574959}
-  - {fileID: 8265687860522192304}
-  - {fileID: 7951102452044906491}
-  - {fileID: 3284291469370183998}
-  - {fileID: 1114177823928136007}
-  - {fileID: 7510890371034741292}
-  bookFilms:
-  - {fileID: 8201793571172182989}
-  - {fileID: 8285839458470927809}
-  - {fileID: 171159000892557399}
-  - {fileID: 3436305575273298756}
-  - {fileID: 3396105210233152271}
-  CameraLifeUIs:
-  - {fileID: 7400784378723847544}
-  - {fileID: 5966630894179603746}
-  - {fileID: 3316788049272370084}
-  FilmContainer: {fileID: 5839883459389513440}
-  PuzzleUI: {fileID: 1135277545875289752}
-  NextPageBtn: {fileID: 8617159805896200079}
-  currentPageIndex: 0
-  cameraLife: 3
 --- !u!1 &4926374679724953461
 GameObject:
   m_ObjectHideFlags: 0
@@ -4161,6 +4084,7 @@ GameObject:
   - component: {fileID: 7953612122074929569}
   - component: {fileID: 2147816707154338055}
   - component: {fileID: 710457413680370827}
+  - component: {fileID: 732347325561405168}
   m_Layer: 5
   m_Name: NextPage
   m_TagString: Untagged
@@ -4270,7 +4194,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4033378044754331193}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PageSetting, Assembly-CSharp
         m_MethodName: NextPage
         m_Mode: 1
@@ -4282,6 +4206,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &732347325561405168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8617159805896200079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5018771ae7fce164da7fdf9a145c2c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9161682929781683570
 GameObject:
   m_ObjectHideFlags: 0
