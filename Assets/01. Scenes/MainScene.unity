@@ -2535,6 +2535,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3256611424003063799, guid: f25b5ee1ba1a61449935b5d34e24a198, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e0086688255dbe4ebb353358ff032d6, type: 2}
+    - target: {fileID: 3256611424003063799, guid: f25b5ee1ba1a61449935b5d34e24a198, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: baf7fdb09137fcf48a9a56dcbca07bf0, type: 2}
     - target: {fileID: 5973718624971582609, guid: f25b5ee1ba1a61449935b5d34e24a198, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.012
@@ -2579,6 +2587,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book
       objectReference: {fileID: 0}
+    - target: {fileID: 8311760462955760490, guid: f25b5ee1ba1a61449935b5d34e24a198, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e0086688255dbe4ebb353358ff032d6, type: 2}
+    - target: {fileID: 8311760462955760490, guid: f25b5ee1ba1a61449935b5d34e24a198, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: baf7fdb09137fcf48a9a56dcbca07bf0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
