@@ -52,7 +52,7 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
         var clip = AudioManager.inst.audioDictionary["FilmRewindSFX"];
         AudioManager.inst.PlaySFX(clip);
 
-        var videoClip = pageDataSOs[currentPageIndex].ViduoClip;
+        var videoClip = pageDataSOs[currentPageIndex].VideoClip;
         switch (currentPageIndex)
         {
             case 0:

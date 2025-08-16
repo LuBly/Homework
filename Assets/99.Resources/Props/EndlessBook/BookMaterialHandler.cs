@@ -88,7 +88,7 @@ public class BookMaterialHandler : MonoBehaviour
         materials[index].SetFloat("_TimeGoStoper", tempvalue);
 
 
-        var videoClip = PageSetting.inst.pageDataSOs[index].ViduoClip;
+        var videoClip = PageSetting.inst.pageDataSOs[index].VideoClip;
         VideoManager.inst.PlayVideo(videoClip);
     }
 }

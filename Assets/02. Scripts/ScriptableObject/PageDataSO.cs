@@ -8,6 +8,6 @@ public class PageDataSO : ScriptableObject
     public List<Sprite> PieceImgs;
     public List<Sprite> AnswerImgs;
     [TextArea] public string Desc;
-    public VideoClip ViduoClip;
+    public VideoClip VideoClip;
     public List<string> Keywords;
 }
