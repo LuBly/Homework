@@ -53,6 +53,7 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
     public void PageComplete()
     {
         currentPageIndex++;
+        GameManager.inst.NextPage();
         // 페이지 설정 후 FilmContainer 닫기
         UIManager.inst.CloseUI(PuzzleUI);
         UIManager.inst.CloseUI(hintDiary.gameObject);
@@ -93,6 +94,7 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
     {
         // 게임 오버 로직
         currentPageIndex = 0; // 페이지 인덱스 초기화
+        GameManager.inst.TurnToPage(currentPageIndex + 1);
         cameraLife = 3; // 카메라 생명 초기화
         ResetPage();
         // 다시하기 버튼 활성화, 클릭 시 RestPage 호출
