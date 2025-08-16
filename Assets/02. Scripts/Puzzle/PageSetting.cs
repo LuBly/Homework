@@ -11,11 +11,14 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
     public PageDataSO[] pageDataSOs;
     public Film[] films;
     public BookFilm[] bookFilms;
+    [SerializeField] private GameObject[] CameraLifeUIs;
+
     public GameObject FilmContainer;
     public GameObject PuzzleUI;
     public GameObject NextPageBtn;
-    
+
     [SerializeField] private int currentPageIndex = 0;
+    [SerializeField] private int cameraLife = 3; // 카메라 생명 초기값(전부 감소하면 게임 오버, Index 0으로 돌아감)
 
     private void Start()
     {
@@ -52,13 +55,63 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
         UIManager.inst.OpenUI(NextPageBtn); // 다음 페이지 버튼 활성화
     }
 
+    public void Incorrect()
+    {
+        cameraLife--;
+        if (cameraLife <= 0)
+        {
+            // 카메라 생명이 모두 소진되면 게임 오버 처리
+            Debug.Log("카메라 생명이 모두 소진되었습니다. 게임 오버.");
+            GameOver();
+        }
+        else
+        {
+            GameObject lifUI = CameraLifeUIs[cameraLife-1]; // 2 1 0 순서로 UI를 가져와서 비활성화
+            if (lifUI != null)
+            {
+                UIManager.inst.CloseUI(lifUI); // 현재 생명 UI 닫기
+                Debug.Log("카메라 생명 감소: " + cameraLife);
+            }
+            else
+            {
+                Debug.LogWarning("카메라 생명 UI가 설정되지 않았습니다.");
+            }
+        }
+    }
+
+    private void GameOver()
+    {
+        // 게임 오버 로직
+        currentPageIndex = 0; // 페이지 인덱스 초기화
+        cameraLife = 3; // 카메라 생명 초기화
+        ResetPage();
+        // 다시하기 버튼 활성화, 클릭 시 RestPage 호출
+        // 현재는 바로 ResetPage 호출
+
+    }
+
+    private void GameEnd()
+    {
+        // 게임 완료 시 엔딩 로직
+    }
+
+    public void ResetPage()
+    {
+        foreach(var cam in CameraLifeUIs)
+        {
+            UIManager.inst.OpenUI(cam); // 모든 카메라 생명 UI 활성화
+        }
+        UIManager.inst.CloseUI(PuzzleUI);
+        UIManager.inst.OpenUI(NextPageBtn);
+    }
+
     public void NextPage()
     {
         UIManager.inst.OpenUI(PuzzleUI);
         if(!FilmContainer.activeSelf)
             UIManager.inst.OpenUI(FilmContainer);
         Setting();
-        UIManager.inst.CloseUI(FilmContainer); // PuzzleUI 닫기
+        UIManager.inst.CloseUI(FilmContainer); // FilmContainerUI 닫기
         UIManager.inst.CloseUI(NextPageBtn); // 다음 페이지 버튼 비활성화
         // 페이지 설정 후 FilmContainer 닫기
     }

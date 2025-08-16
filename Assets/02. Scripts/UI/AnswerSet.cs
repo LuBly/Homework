@@ -31,15 +31,16 @@ public class AnswerSet : MonoBehaviour
             // 정답을 맞추면 chapterIndex를 증가시키고 다음 페이지 세팅 로직 삽입
             PageSetting.inst.PageComplete();
             // 세팅되어 있던 이미지들을 RestImg()를 통해 초기화
-            foreach (var bookFilm in bookFilms)
-            {
-                bookFilm.ResetImg();
-            }
         }
         else
         {
             Debug.Log($"오답! 맞춘 개수: {correctCount}개");
+            PageSetting.inst.Incorrect(); // 오답 처리
             // 오답 시 카메라(라이프) 차감
+        }
+        foreach (var bookFilm in bookFilms)
+        {
+            bookFilm.RestPosition();
         }
     }
 }

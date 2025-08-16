@@ -38,22 +38,29 @@ public class BookFilm : MonoBehaviour, IDropHandler, IPointerClickHandler
 
     public void OnDrop(PointerEventData eventData)
     {
-        // 기존에 드래그 되었던 이미지가 있다면 해당 오브젝트를 활성화하고, 드래그 중이던 이미지의  스프라이트로 변경
-
+        // 기존에 드롭된 Film 오브젝트가 있으면 원위치 복원 및 이미지 제거
         if (droppedFilmObj != null)
         {
-            ResetImg(); // 이전에 드롭된 Film 오브젝트의 상태를 초기화
+            ResetImg();
+            filmImage.sprite = null;
+            droppedFilmObj = null;
         }
+        // 새 드랍이 들어오면 이미지 할당 및 오브젝트 갱신
         if (Film.beingDraggImg != null)
         {
-            Image draggedImage = Film.beingDraggImg.GetComponent<Image>();
-            if (draggedImage != null)
+            Film film = Film.beingDraggImg.GetComponent<Film>();
+            if (film != null && film.filmImage != null)
             {
-                filmImage.sprite = draggedImage.sprite; // 드래그된 이미지의 스프라이트를 현재 오브젝트의 이미지로 설정
-                Debug.Log("드롭된 이미지: " + filmImage.sprite.name);
-                droppedFilmObj = Film.beingDraggImg; // 드롭된 Film 오브젝트 기억                
-                droppedFilmObj.SetActive(false); // Film 오브젝트 비활성화
-            }            
+                filmImage.sprite = film.filmImage.sprite;
+                Debug.Log("드롭된 이미지: " + filmImage.sprite?.name);
+                droppedFilmObj = Film.beingDraggImg;
+                droppedFilmObj.SetActive(false);
+            }
+            else
+            {
+                Debug.LogWarning($"드래그된 오브젝트에 Film 또는 Image 컴포넌트가 없습니다. film: {film}, filmImage: {film?.filmImage}");
+            }
+            Film.beingDraggImg = null; // 드랍 처리 후에만 초기화
         }
         IsCorrectFilm(); // 정답 여부 확인
     }
@@ -63,7 +70,7 @@ public class BookFilm : MonoBehaviour, IDropHandler, IPointerClickHandler
         // 클릭 시 드롭된 Film 오브젝트 활성화, BookFilm 이미지 제거
         if (droppedFilmObj != null)
         {
-            ResetImg(); // 드롭된 Film 오브젝트의 상태를 초기화
+            RestPosition(); // 이전에 드롭된 Film 오브젝트의 상태를 초기화
             IsCorrectFilm(); // 정답 여부 확인
         }
     }
@@ -104,8 +111,16 @@ public class BookFilm : MonoBehaviour, IDropHandler, IPointerClickHandler
             }
             image.color = new Color(image.color.r, image.color.g, image.color.b, 1f); // 이미지 색상 원복
         }
-        filmImage.sprite = null;
-        droppedFilmObj = null;
-        Film.beingDraggImg = null; // 드래그 중인 이미지 초기화
+    }
+
+    public void RestPosition()
+    {
+        if (droppedFilmObj != null)
+        {
+            ResetImg(); // 이전에 드롭된 Film 오브젝트의 상태를 초기화
+            filmImage.sprite = null;
+            droppedFilmObj = null;
+            Film.beingDraggImg = null; // 드래그 중인 이미지 초기화
+        }
     }
 }
