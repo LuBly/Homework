@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Age20_Diary
   m_EditorClassIdentifier: 
   PieceImgs:
-  - {fileID: 21300000, guid: 007e1c9ca390cbe4f8d5db1732056078, type: 3}
-  - {fileID: 21300000, guid: 27ea1f24d372e634eb813fa810a57375, type: 3}
-  - {fileID: 21300000, guid: 7c02dd13d2f216a4e97840b3139bba57, type: 3}
-  - {fileID: 21300000, guid: 11fe5ce89a385bf4ab26261e33d3213c, type: 3}
-  - {fileID: 21300000, guid: c67141243a795d44b9eed7ca9bbb740e, type: 3}
-  - {fileID: 21300000, guid: 476b03eba9ad0f04da84d718966e7c24, type: 3}
+  - {fileID: 21300000, guid: 69a296723702ead4c9e851c0e0e15951, type: 3}
+  - {fileID: 21300000, guid: 60fb9e5598bd56d4badf50f5d8166f60, type: 3}
+  - {fileID: 21300000, guid: 14332a452dfe92b41999d59807fc7571, type: 3}
+  - {fileID: 21300000, guid: b7e43b92a8196054e8ec4eb7f0a05a6c, type: 3}
+  - {fileID: 21300000, guid: d2b8e879d55a2e745b3e807294b8e195, type: 3}
+  - {fileID: 21300000, guid: 34fa4405839ea6a4bb96fc955a42f11a, type: 3}
   AnswerImgs:
-  - {fileID: 21300000, guid: 007e1c9ca390cbe4f8d5db1732056078, type: 3}
-  - {fileID: 21300000, guid: 27ea1f24d372e634eb813fa810a57375, type: 3}
-  - {fileID: 21300000, guid: 7c02dd13d2f216a4e97840b3139bba57, type: 3}
+  - {fileID: 21300000, guid: 69a296723702ead4c9e851c0e0e15951, type: 3}
+  - {fileID: 21300000, guid: 60fb9e5598bd56d4badf50f5d8166f60, type: 3}
+  - {fileID: 21300000, guid: 14332a452dfe92b41999d59807fc7571, type: 3}
   Desc: "\uB300\uD559\uAD50\uC5D0 \uC785\uD559\uD55C \uC9C0 \uC5BC\uB9C8 \uB418\uC9C0
     \uC54A\uC544, \uC544\uC9C1 \uBAA8\uB4E0 \uAC83\uC774 \uB0AF\uC124\uB2E4.\r\n\uC0AC\uB78C\uB4E4\uC740
     \uCD95\uC81C \uC900\uBE44\uB85C \uB5A0\uB4E4\uC369\uD588\uC9C0\uB9CC, \uB098\uB294

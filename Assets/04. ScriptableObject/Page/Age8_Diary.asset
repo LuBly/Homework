@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Age8_Diary
   m_EditorClassIdentifier: 
   PieceImgs:
-  - {fileID: 21300000, guid: e8dc1ceb8332dd947a774206a497e687, type: 3}
-  - {fileID: 21300000, guid: 8d624f3b42065d940b817c0f614e86b2, type: 3}
-  - {fileID: 21300000, guid: ff7a15156cb1a8d498deda0ad1311894, type: 3}
-  - {fileID: 21300000, guid: fd6ad6f9485757d4da63be15ea1ba850, type: 3}
-  - {fileID: 21300000, guid: a7405ddff6709d447820d1828f255ecd, type: 3}
-  - {fileID: 21300000, guid: 532e0aa0ea9ddc04cbf39c82604119b6, type: 3}
+  - {fileID: 21300000, guid: 23d044bb9dcfb3642a0bb3b62544408a, type: 3}
+  - {fileID: 21300000, guid: 76d3fa5fac47b294bb4f0ded987d6827, type: 3}
+  - {fileID: 21300000, guid: ddcf1ea7d7bb72e45a839494a22ddc3e, type: 3}
+  - {fileID: 21300000, guid: f440971a443a3d14e85f9608b2ed9c3a, type: 3}
+  - {fileID: 21300000, guid: eeb64f8c058643a49bb550d7e1ccbb90, type: 3}
+  - {fileID: 21300000, guid: 6234796312393e34696f0b094b70f8df, type: 3}
   AnswerImgs:
-  - {fileID: 21300000, guid: e8dc1ceb8332dd947a774206a497e687, type: 3}
-  - {fileID: 21300000, guid: 8d624f3b42065d940b817c0f614e86b2, type: 3}
-  - {fileID: 21300000, guid: ff7a15156cb1a8d498deda0ad1311894, type: 3}
+  - {fileID: 21300000, guid: 23d044bb9dcfb3642a0bb3b62544408a, type: 3}
+  - {fileID: 21300000, guid: 76d3fa5fac47b294bb4f0ded987d6827, type: 3}
+  - {fileID: 21300000, guid: ddcf1ea7d7bb72e45a839494a22ddc3e, type: 3}
   Desc: "\uC624\uB298\uC740 \uCE5C\uAD6C\uB4E4\uACFC \uB180\uC774\uD130\uC5D0\uC11C
     \uD558\uB8E8 \uC885\uC77C \uB180\uC558\uB2E4.\v\uBA3C\uC800 \uADF8\uB124\uB97C
     \uD0C0\uB2E4\uAC00, \uAE08\uBC29 \uBBF8\uB044\uB7FC\uD2C0\uB85C \uB2EC\uB824\uAC00\uACE0,

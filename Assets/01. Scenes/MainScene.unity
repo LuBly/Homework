@@ -2360,7 +2360,7 @@ PrefabInstance:
     - target: {fileID: 6951235980187884634, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
       propertyPath: 'pageDataSOs.Array.data[1]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: d460ee3f1e0e3ae4895c418c40b68c95, type: 2}
     - target: {fileID: 7335898132610111691, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
       propertyPath: m_UiScaleMode
       value: 1
