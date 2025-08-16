@@ -9,4 +9,5 @@ public class PageDataSO : ScriptableObject
     public List<Sprite> AnswerImgs;
     [TextArea] public string Desc;
     public VideoClip ViduoClip;
+    public List<string> Keywords;
 }
