@@ -1,16 +1,19 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 
 /// <summary>
 /// SO를 기반으로 Film리스트와 정답을 관리
 /// </summary>
 
 
-public class PageSetting : MonoBehaviour
+public class PageSetting : GlobalSingletonMono<PageSetting>
 {
     public PageDataSO[] pageDataSOs;
     public Film[] films;
     public BookFilm[] bookFilms;
     public GameObject FilmContainer;
+    public GameObject PuzzleUI;
+    public GameObject NextPageBtn;
     
     [SerializeField] private int currentPageIndex = 0;
 
@@ -32,8 +35,36 @@ public class PageSetting : MonoBehaviour
         {
             Debug.Log("게임 전체 페이지를 모두 완료했습니다.");
             //게임 종료 로직
+            UIManager.inst.CloseUI(PuzzleUI);
+            Debug.Log("게임 엔딩 로직 실행");
             return;
         }
+
+        filmSetting(); // Film 설정
+        BookFilmSetting(); // BookFilm 설정
+    }
+
+    public void PageComplete()
+    {
+        currentPageIndex++;
+        // 페이지 설정 후 FilmContainer 닫기
+        UIManager.inst.CloseUI(PuzzleUI);
+        UIManager.inst.OpenUI(NextPageBtn); // 다음 페이지 버튼 활성화
+    }
+
+    public void NextPage()
+    {
+        UIManager.inst.OpenUI(PuzzleUI);
+        if(!FilmContainer.activeSelf)
+            UIManager.inst.OpenUI(FilmContainer);
+        Setting();
+        UIManager.inst.CloseUI(FilmContainer); // PuzzleUI 닫기
+        UIManager.inst.CloseUI(NextPageBtn); // 다음 페이지 버튼 비활성화
+        // 페이지 설정 후 FilmContainer 닫기
+    }
+
+    private void filmSetting()
+    {
         //모든 film에 pageDataSO의 pieceImgs를 랜덤으로 할당, 중복 불가, answerImgs는 BookFilm에 할당됨(순서대로)
         int[] randomindexs = new int[pageDataSOs[currentPageIndex].pieceImgs.Count]; // 랜덤 인덱스 배열 초기화
 
@@ -54,7 +85,7 @@ public class PageSetting : MonoBehaviour
                     }
                     else
                     {
-                        if(!films[i].gameObject.activeSelf)
+                        if (!films[i].gameObject.activeSelf)
                             films[i].gameObject.SetActive(true);
                     }
 
@@ -74,9 +105,12 @@ public class PageSetting : MonoBehaviour
 
             }
         }
+    }
 
+    private void BookFilmSetting()
+    {
         // BookFilm의 AnswerImg에 answerImgs를 순서대로 할당
-        for(int i = 0; i < bookFilms.Length; i++)
+        for (int i = 0; i < bookFilms.Length; i++)
         {
             if (pageDataSOs.Length > currentPageIndex)
             {
@@ -100,9 +134,5 @@ public class PageSetting : MonoBehaviour
                 }
             }
         }
-
-        
-
-        
     }
 }

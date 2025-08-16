@@ -29,6 +29,12 @@ public class AnswerSet : MonoBehaviour
         {
             Debug.Log("모든 정답을 맞추셨습니다!");
             // 정답을 맞추면 chapterIndex를 증가시키고 다음 페이지 세팅 로직 삽입
+            PageSetting.inst.PageComplete();
+            // 세팅되어 있던 이미지들을 RestImg()를 통해 초기화
+            foreach (var bookFilm in bookFilms)
+            {
+                bookFilm.ResetImg();
+            }
         }
         else
         {

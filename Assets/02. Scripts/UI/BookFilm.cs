@@ -64,9 +64,6 @@ public class BookFilm : MonoBehaviour, IDropHandler, IPointerClickHandler
         if (droppedFilmObj != null)
         {
             ResetImg(); // 드롭된 Film 오브젝트의 상태를 초기화
-            filmImage.sprite = null;
-            droppedFilmObj = null;
-            Film.beingDraggImg = null; // 드래그 중인 이미지 초기화
             IsCorrectFilm(); // 정답 여부 확인
         }
     }
@@ -88,7 +85,7 @@ public class BookFilm : MonoBehaviour, IDropHandler, IPointerClickHandler
         return false; // 드롭된 이미지가 없거나 Film 컴포넌트가 없으면 false
     }
 
-    private void ResetImg()
+    public void ResetImg()
     {
         Film film = droppedFilmObj.GetComponent<Film>();
         if (film != null)
@@ -107,5 +104,8 @@ public class BookFilm : MonoBehaviour, IDropHandler, IPointerClickHandler
             }
             image.color = new Color(image.color.r, image.color.g, image.color.b, 1f); // 이미지 색상 원복
         }
+        filmImage.sprite = null;
+        droppedFilmObj = null;
+        Film.beingDraggImg = null; // 드래그 중인 이미지 초기화
     }
 }
