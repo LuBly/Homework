@@ -15,11 +15,20 @@ public class UIStartMenu : MonoBehaviour
 
     [SerializeField] private Image endImg;
     [SerializeField] private TextMeshProUGUI endTxt;
+
+    private Canvas canvas;
     #endregion [ Components ]
 
     #region [ Fields ]
     [SerializeField] private float duration;
     #endregion [ Fields ]
+
+    #region [ Unity Method ]
+    private void Awake()
+    {
+        canvas = GetComponent<Canvas>();
+    }
+    #endregion [ Unity Method ]
 
     #region [ External Method ]
     public void UIStartSeq()

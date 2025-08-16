@@ -16,6 +16,7 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
     public GameObject FilmContainer;
     public GameObject PuzzleUI;
     public GameObject NextPageBtn;
+    public HintDiary hintDiary;
     private float camShakeSec = 0.2f;
 
     [SerializeField] private int currentPageIndex = 0;
@@ -46,13 +47,16 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
 
         filmSetting(); // Film 설정
         BookFilmSetting(); // BookFilm 설정
+        DiarySetting(); // 일기 설정
     }
 
     public void PageComplete()
     {
         currentPageIndex++;
+        GameManager.inst.NextPage();
         // 페이지 설정 후 FilmContainer 닫기
         UIManager.inst.CloseUI(PuzzleUI);
+        UIManager.inst.CloseUI(hintDiary.gameObject);
         UIManager.inst.OpenUI(NextPageBtn); // 다음 페이지 버튼 활성화
     }
 
@@ -90,6 +94,7 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
     {
         // 게임 오버 로직
         currentPageIndex = 0; // 페이지 인덱스 초기화
+        GameManager.inst.TurnToPage(currentPageIndex + 1);
         cameraLife = 3; // 카메라 생명 초기화
         ResetPage();
         // 다시하기 버튼 활성화, 클릭 시 RestPage 호출
@@ -193,6 +198,37 @@ public class PageSetting : GlobalSingletonMono<PageSetting>
                     bookFilms[i].answerID = pageData.AnswerImgs[i];
                 }
             }
+        }
+    }
+
+    private void DiarySetting()
+    {
+        UIManager.inst.OpenUI(hintDiary.gameObject);
+        hintDiary.SetDiary(currentPageIndex);        
+    }
+
+    public void ShowHint()
+    {
+        if(pageDataSOs.Length > currentPageIndex)
+        {
+            // 현재 페이지의 힌트 키워드 가져오기
+
+            // List를 string[]로 변환
+
+            string[] keywords = pageDataSOs[currentPageIndex].Keywords?.ToArray();
+
+            if (keywords != null && keywords.Length > 0)
+            {
+                hintDiary.ShowHint(currentPageIndex, keywords);
+            }
+            else
+            {
+                Debug.LogWarning("현재 페이지에 힌트 키워드가 없습니다.");
+            }
+        }
+        else
+        {
+            Debug.LogError("현재 페이지 인덱스가 범위를 벗어났습니다.");
         }
     }
 }
