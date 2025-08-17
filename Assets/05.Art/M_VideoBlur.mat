@@ -103,11 +103,16 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _Edge: 0.025
+    - _Edge_Draw_In: 0.025
+    - _Edge_Draw_Out: 0.25
     - _EnvironmentReflections: 1
     - _Feather: 0.04
+    - _Feather_Draw_In: 0.05
+    - _Feather_Draw_Out: 5
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _LerpValue: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
