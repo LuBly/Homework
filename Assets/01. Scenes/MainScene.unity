@@ -946,6 +946,21 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8124707124629372562, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
   m_PrefabInstance: {fileID: 1184242072}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &422888129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422888128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943cf48d86f996e4f8a0e2e5837f7ec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UImaterial: {fileID: 2100000, guid: 6be783034ccb5774eb176f3a57a66000, type: 2}
+  DrawInDurationTime: 0.25
+  DrawOutDurationTime: 0.25
 --- !u!1 &500821198
 GameObject:
   m_ObjectHideFlags: 0
@@ -1441,7 +1456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1104485525}
-  videoObject: {fileID: 422888128}
+  videoMatController: {fileID: 422888129}
 --- !u!1 &988806086
 GameObject:
   m_ObjectHideFlags: 0
@@ -2467,7 +2482,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8124707124629372562, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 422888129}
   m_SourcePrefab: {fileID: 100100000, guid: 75cc78a5bda2dcd4ab95e97dcbcfef28, type: 3}
 --- !u!224 &1184242073 stripped
 RectTransform:

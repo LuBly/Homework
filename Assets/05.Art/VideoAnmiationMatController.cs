@@ -57,7 +57,7 @@ public class VideoAnmiationMatController : MonoBehaviour
         {
             elapsed += Time.deltaTime;
             //머티리얼 조정구간
-            tempvalue = Mathf.Lerp(0f, 1f, elapsed / DrawOutDurationTime);
+            tempvalue = Mathf.Lerp(1f, 0f, elapsed / DrawOutDurationTime);
             UImaterial.SetFloat("_LerpValue", tempvalue);
 
             yield return null;  // 다음 프레임까지 대기
@@ -67,5 +67,6 @@ public class VideoAnmiationMatController : MonoBehaviour
         UImaterial.SetFloat("_LerpValue", tempvalue);
 
         Debug.Log("비디오 페이드 아웃 애니메이션 완료");
+        this.SetActive(false);
     }
 }

@@ -6,7 +6,7 @@ public class VideoManager : GlobalSingletonMono<VideoManager>
 {
     #region [ Components ]
     [SerializeField] private VideoPlayer player;
-    [SerializeField] private GameObject videoObject;
+    [SerializeField] private VideoAnmiationMatController videoMatController;
     #endregion [ Components ]
 
     #region [ Fields ]
@@ -40,14 +40,14 @@ public class VideoManager : GlobalSingletonMono<VideoManager>
             time += Time.deltaTime;
             yield return null;
         }
-        videoObject.SetActive(true);
+        videoMatController.SetActive(true);
+        videoMatController.UIDrawIn();
         player.Play();
     }
 
     void OnVideoEnd(VideoPlayer vp)
     {
-        videoObject.SetActive(false);
+        videoMatController.UIDrawOut();
         Debug.Log("Video has ended.");
-        
     }
 }
